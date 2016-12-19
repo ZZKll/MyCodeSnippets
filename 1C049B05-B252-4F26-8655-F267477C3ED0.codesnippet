@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>zk_tableView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)createTableView {
+
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_width, screen_height) style:UITableViewStylePlain];
+    
+    _tableView.delegate = self ;
+    _tableView.dataSource = self ;
+    
+    [self.bgScrollView addSubview:_tableView];
+    
+    _tableView.tableFooterView = [UIView new];
+    
+    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"WalletMoreCell"];
+}
+- (NSInteger )numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1 ;
+}
+- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _dataAry.count ;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMoreCell"];
+    
+    NSArray *imgAry = @[@"Emergency-report",@"Lift-loss",@"Bind-bank-card"];
+    cell.imageView.image = [UIImage imageNamed:imgAry[indexPath.row]];
+    cell.textLabel.text = _dataAry[indexPath.row];
+    
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator ;
+    
+    return cell ;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1C049B05-B252-4F26-8655-F267477C3ED0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>zk_tableView</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>zk_tableView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
